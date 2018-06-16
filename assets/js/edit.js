@@ -80,11 +80,24 @@ $(window).bind('beforeunload', function () {
 });
 
 $("#btn-preview").click(function () {
-    layer.open({
-        type: 1,
-        title: "手机预览",
-        skin: 'layui-layer-rim',
-        area: ['375px', '667px'],
-        content: "<div style=\"padding:.5em\">" + editor.txt.html() + "</div>"
-      });
+	layer.open({
+		type: 1,
+		title: "手机预览",
+		skin: 'layui-layer-rim',
+		area: ['375px', '667px'],
+		content: "<div style=\"padding:.5em\">" + editor.txt.html() + "</div>"
+	});
+});
+
+layer.load(0, {
+	shade: [0.5, '#000']
+});
+$.ajax({
+	type: "GET",
+	url: "https://yyh2018.qz5z.ren/admin/main/get/" + id,
+	dataType: "json",
+	success: function (res) {
+		editor.txt.html(res.content);
+		layer.closeAll('loading');
+	}
 });

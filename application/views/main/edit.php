@@ -77,7 +77,6 @@
     <div id="div1" class="toolbar">
     </div>
     <div id="div2" class="text">
-        <?php echo $content; ?>
     </div>
     <div style="text-align: center;">
         <button type="button" id="btn-preview" class="am-btn am-btn-primary" style="margin-top:.5em">预览</button>

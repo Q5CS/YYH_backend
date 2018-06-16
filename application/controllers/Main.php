@@ -52,7 +52,7 @@ class Main extends CI_Controller
 			redirect('main/index');
 		}
         $data['add_css'] = array();
-        $data['add_js'] = array('../layer/layer.js', '../wangeditor/wangEditor.min.js', 'edit.js');
+        $data['add_js'] = array('../layer/layer.js', '../wangeditor/wangEditor.min.js', 'edit.js?v=3');
         $data['logged'] = $this->User_model->loged();
 		$data['user'] = $this->User_model->userinfo();
 		$data['sid'] = $id;

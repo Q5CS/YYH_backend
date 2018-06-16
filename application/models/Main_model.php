@@ -59,7 +59,7 @@ class Main_model extends CI_Model
         return $data;
     }
     public function getAll() {
-        $query = $this->db->query("SELECT s1.sid, s1.title, s1.content, s1.time FROM records s1 LEFT JOIN records s2 ON s1.sid = s2.sid AND s1.time < s2.time WHERE s2.id IS NULL;")->result_array();
+        $query = $this->db->query("SELECT * FROM (SELECT s1.sid, s1.title, s1.content, s1.time FROM records s1 LEFT JOIN records s2 ON s1.sid = s2.sid AND s1.time < s2.time WHERE s2.id IS NULL) AS t;")->result_array();
 	return $query;
     }
 }
